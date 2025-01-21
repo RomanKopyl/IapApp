@@ -84,6 +84,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy "store", "play"
     }
     signingConfigs {
         debug {
@@ -103,6 +104,13 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+    flavorDimensions "appstore"    
+    productFlavors {
+        googlePlay {
+            dimension "appstore"
+            missingDimensionStrategy "store", "play"
         }
     }
 }
